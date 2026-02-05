@@ -5,7 +5,9 @@
   "scripts": {
     "dev": "dotenv -e .env -- keystone dev",
     "build": "keystone build",
-    "start": "keystone start"
+    "migrate": "keystone prisma migrate deploy",
+    "start": "keystone start",
+    "start:prod": "npm run migrate && npm run start"
   },
   "dependencies": {
     "@keystone-6/auth": "^8.0.0",
