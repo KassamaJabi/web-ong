@@ -4,8 +4,8 @@
   "private": true,
   "scripts": {
     "dev": "dotenv -e .env -- keystone dev",
-    "build": "dotenv -e .env -- keystone build",
-    "start": "dotenv -e .env -- keystone start"
+    "build": "keystone build",
+    "start": "keystone start"
   },
   "dependencies": {
     "@keystone-6/auth": "^8.0.0",
