@@ -17,18 +17,42 @@ export default function Home() {
   }
 
   return (
-    <main style={{ padding: '4rem', fontFamily: 'sans-serif' }}>
-      <h1>Kassama Jabi</h1>
-      <p>
-        Estamos trabajando en la nueva web de la asociación Kassama Jabi.
-      </p>
-      <p>
-        Muy pronto compartiremos más información.
-      </p>
+     <main
+      className="min-h-screen flex items-center justify-center px-6"
+      style={{
+        background: `
+          linear-gradient(
+            180deg,
+            var(--color-tierra) 0%,
+            var(--color-ocre) 60%,
+            #9A3F1A 100%
+          )
+        `,
+        color: 'var(--color-blanco)',
+  }}
+    >
+      <div className="max-w-xl text-center space-y-6">
+        <p className="uppercase tracking-widest text-sm opacity-80">
+          ONG inscrita
+        </p>
+
+        <h1 className="text-4xl md:text-5xl font-semibold">
+          Kassama Jabi
+        </h1>
+
+        <p className="text-lg leading-relaxed opacity-90">
+          Estamos construyendo el próximo paso de Kassama Jabi.
+          Un espacio para acompañar, fortalecer comunidades y
+          trabajar desde la dignidad.
+        </p>
+
+        <p className="text-sm opacity-75">
+          Muy pronto compartiremos más información.
+        </p>
+      </div>
     </main>
   );
 }
-
 
 /*export default function Home() {
   return (

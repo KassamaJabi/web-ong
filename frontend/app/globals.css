@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
-html, body {
-  @apply bg-white text-text;
+:root {
+  --color-tierra: #8C3B1F;
+  --color-ocre: #C75A1C;
+  --color-arena: #E6C8A2;
+  --color-baobab: #5A2A14;
+  --color-blanco: #FAF6F2;
 }
