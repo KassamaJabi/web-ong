@@ -16,18 +16,15 @@ type Project = {
 
 export default async function Page({
     searchParams,
-    }: {
-      searchParams?: unknown;
-    }) {
-      const isPreview =
-        typeof searchParams === 'object' &&
-        searchParams !== null &&
-        'preview' in searchParams &&
-        (searchParams as { preview?: string }).preview === 'true';
+  }: {
+    searchParams?: Promise<{ preview?: string }>;
+  }) {
+    const params = await searchParams;
+    const isPreview = params?.preview === 'true';
 
-      const projects: Project[] = isPreview ? await getProjects() : [];
-    
-    return (
+    const projects = isPreview ? await getProjects() : [];
+
+  return (
     <main className="relative min-h-screen">
 
       {/* HERO */}
