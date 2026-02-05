@@ -2,11 +2,11 @@ import Image from 'next/image';
 import Header from './components/Header';
 import { getProjects } from '../lib/getProjects';
 
-type PageProps = {
-  searchParams?: {
-    preview?: string;
-  };
-};
+// type PageProps = {
+//   searchParams?: {
+//     preview?: string;
+//   };
+// };
 
 export default async function Page({
     searchParams,
