@@ -1,0 +1,13 @@
+-- AlterTable
+ALTER TABLE "News" ALTER COLUMN "title" SET DEFAULT '',
+ALTER COLUMN "summary" SET DEFAULT '',
+ALTER COLUMN "content" SET DEFAULT '',
+ALTER COLUMN "createdAt" DROP NOT NULL;
+
+-- AlterTable
+ALTER TABLE "Tag" ALTER COLUMN "name" SET DEFAULT '';
+
+-- AlterTable
+ALTER TABLE "User" ALTER COLUMN "name" SET DEFAULT '',
+ALTER COLUMN "email" SET DEFAULT '',
+ALTER COLUMN "createdAt" DROP NOT NULL;

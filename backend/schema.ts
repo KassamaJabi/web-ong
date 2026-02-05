@@ -147,7 +147,7 @@ export const lists = {
     },
   }),
 
-  Projects: list({
+  Project: list({
     access: allowAll,
     graphql: {
       plural: 'ProjectItems',
@@ -172,7 +172,7 @@ export const lists = {
     },
   }),
 
-  Pages: list({
+  Page: list({
     access: allowAll,
     graphql: {
       plural: 'PageItems',

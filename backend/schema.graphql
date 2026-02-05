@@ -177,7 +177,7 @@ input NewsCreateInput {
   createdAt: DateTime
 }
 
-type Projects {
+type Project {
   id: ID!
   title: String
   shortDescription: String
@@ -186,14 +186,14 @@ type Projects {
   published: Boolean
 }
 
-input ProjectsWhereUniqueInput {
+input ProjectWhereUniqueInput {
   id: ID
 }
 
-input ProjectsWhereInput {
-  AND: [ProjectsWhereInput!]
-  OR: [ProjectsWhereInput!]
-  NOT: [ProjectsWhereInput!]
+input ProjectWhereInput {
+  AND: [ProjectWhereInput!]
+  OR: [ProjectWhereInput!]
+  NOT: [ProjectWhereInput!]
   id: IDFilter
   title: StringFilter
   shortDescription: StringFilter
@@ -217,7 +217,7 @@ input StringNullableFilter {
   not: StringNullableFilter
 }
 
-input ProjectsOrderByInput {
+input ProjectOrderByInput {
   id: OrderDirection
   title: OrderDirection
   shortDescription: OrderDirection
@@ -226,7 +226,7 @@ input ProjectsOrderByInput {
   published: OrderDirection
 }
 
-input ProjectsUpdateInput {
+input ProjectUpdateInput {
   title: String
   shortDescription: String
   content: String
@@ -234,12 +234,12 @@ input ProjectsUpdateInput {
   published: Boolean
 }
 
-input ProjectsUpdateArgs {
-  where: ProjectsWhereUniqueInput!
-  data: ProjectsUpdateInput!
+input ProjectUpdateArgs {
+  where: ProjectWhereUniqueInput!
+  data: ProjectUpdateInput!
 }
 
-input ProjectsCreateInput {
+input ProjectCreateInput {
   title: String
   shortDescription: String
   content: String
@@ -247,7 +247,7 @@ input ProjectsCreateInput {
   published: Boolean
 }
 
-type Pages {
+type Page {
   id: ID!
   title: String
   slug: String
@@ -255,14 +255,14 @@ type Pages {
   published: Boolean
 }
 
-input PagesWhereUniqueInput {
+input PageWhereUniqueInput {
   id: ID
 }
 
-input PagesWhereInput {
-  AND: [PagesWhereInput!]
-  OR: [PagesWhereInput!]
-  NOT: [PagesWhereInput!]
+input PageWhereInput {
+  AND: [PageWhereInput!]
+  OR: [PageWhereInput!]
+  NOT: [PageWhereInput!]
   id: IDFilter
   title: StringFilter
   slug: StringFilter
@@ -270,7 +270,7 @@ input PagesWhereInput {
   published: BooleanFilter
 }
 
-input PagesOrderByInput {
+input PageOrderByInput {
   id: OrderDirection
   title: OrderDirection
   slug: OrderDirection
@@ -278,19 +278,19 @@ input PagesOrderByInput {
   published: OrderDirection
 }
 
-input PagesUpdateInput {
+input PageUpdateInput {
   title: String
   slug: String
   content: String
   published: Boolean
 }
 
-input PagesUpdateArgs {
-  where: PagesWhereUniqueInput!
-  data: PagesUpdateInput!
+input PageUpdateArgs {
+  where: PageWhereUniqueInput!
+  data: PageUpdateInput!
 }
 
-input PagesCreateInput {
+input PageCreateInput {
   title: String
   slug: String
   content: String
@@ -350,18 +350,18 @@ type Mutation {
   updateNewsItems(data: [NewsUpdateArgs!]!): [News]
   deleteNews(where: NewsWhereUniqueInput!): News
   deleteNewsItems(where: [NewsWhereUniqueInput!]!): [News]
-  createProjects(data: ProjectsCreateInput!): Projects
-  createProjectItems(data: [ProjectsCreateInput!]!): [Projects]
-  updateProjects(where: ProjectsWhereUniqueInput!, data: ProjectsUpdateInput!): Projects
-  updateProjectItems(data: [ProjectsUpdateArgs!]!): [Projects]
-  deleteProjects(where: ProjectsWhereUniqueInput!): Projects
-  deleteProjectItems(where: [ProjectsWhereUniqueInput!]!): [Projects]
-  createPages(data: PagesCreateInput!): Pages
-  createPageItems(data: [PagesCreateInput!]!): [Pages]
-  updatePages(where: PagesWhereUniqueInput!, data: PagesUpdateInput!): Pages
-  updatePageItems(data: [PagesUpdateArgs!]!): [Pages]
-  deletePages(where: PagesWhereUniqueInput!): Pages
-  deletePageItems(where: [PagesWhereUniqueInput!]!): [Pages]
+  createProject(data: ProjectCreateInput!): Project
+  createProjectItems(data: [ProjectCreateInput!]!): [Project]
+  updateProject(where: ProjectWhereUniqueInput!, data: ProjectUpdateInput!): Project
+  updateProjectItems(data: [ProjectUpdateArgs!]!): [Project]
+  deleteProject(where: ProjectWhereUniqueInput!): Project
+  deleteProjectItems(where: [ProjectWhereUniqueInput!]!): [Project]
+  createPage(data: PageCreateInput!): Page
+  createPageItems(data: [PageCreateInput!]!): [Page]
+  updatePage(where: PageWhereUniqueInput!, data: PageUpdateInput!): Page
+  updatePageItems(data: [PageUpdateArgs!]!): [Page]
+  deletePage(where: PageWhereUniqueInput!): Page
+  deletePageItems(where: [PageWhereUniqueInput!]!): [Page]
   createTag(data: TagCreateInput!): Tag
   createTags(data: [TagCreateInput!]!): [Tag]
   updateTag(where: TagWhereUniqueInput!, data: TagUpdateInput!): Tag
@@ -397,12 +397,12 @@ type Query {
   news(where: NewsWhereUniqueInput!): News
   newsItems(where: NewsWhereInput! = {}, orderBy: [NewsOrderByInput!]! = [], take: Int, skip: Int! = 0, cursor: NewsWhereUniqueInput): [News!]
   newsItemsCount(where: NewsWhereInput! = {}): Int
-  projects(where: ProjectsWhereUniqueInput!): Projects
-  projectItems(where: ProjectsWhereInput! = {}, orderBy: [ProjectsOrderByInput!]! = [], take: Int, skip: Int! = 0, cursor: ProjectsWhereUniqueInput): [Projects!]
-  projectItemsCount(where: ProjectsWhereInput! = {}): Int
-  pages(where: PagesWhereUniqueInput!): Pages
-  pageItems(where: PagesWhereInput! = {}, orderBy: [PagesOrderByInput!]! = [], take: Int, skip: Int! = 0, cursor: PagesWhereUniqueInput): [Pages!]
-  pageItemsCount(where: PagesWhereInput! = {}): Int
+  project(where: ProjectWhereUniqueInput!): Project
+  projectItems(where: ProjectWhereInput! = {}, orderBy: [ProjectOrderByInput!]! = [], take: Int, skip: Int! = 0, cursor: ProjectWhereUniqueInput): [Project!]
+  projectItemsCount(where: ProjectWhereInput! = {}): Int
+  page(where: PageWhereUniqueInput!): Page
+  pageItems(where: PageWhereInput! = {}, orderBy: [PageOrderByInput!]! = [], take: Int, skip: Int! = 0, cursor: PageWhereUniqueInput): [Page!]
+  pageItemsCount(where: PageWhereInput! = {}): Int
   tag(where: TagWhereUniqueInput!): Tag
   tags(where: TagWhereInput! = {}, orderBy: [TagOrderByInput!]! = [], take: Int, skip: Int! = 0, cursor: TagWhereUniqueInput): [Tag!]
   tagsCount(where: TagWhereInput! = {}): Int
