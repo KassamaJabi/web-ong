@@ -1,0 +1,21 @@
+# PostgreSQL for local development
+# Data persisted in named volume
+
+version: "3.9"
+
+services:
+  postgres:
+    image: postgres:16
+    container_name: web-ong-postgres
+    restart: unless-stopped
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: keystone
+      POSTGRES_PASSWORD: keystonepassword
+      POSTGRES_DB: web_ong
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data:
