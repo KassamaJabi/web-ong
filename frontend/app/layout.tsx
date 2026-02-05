@@ -2,10 +2,10 @@ import './globals.css';
 import { Inter, Cormorant_Garamond } from 'next/font/google';
 
 const inter = Inter({ subsets: ['latin'] });
-const cormorant = Cormorant_Garamond({
+/*const cormorant = Cormorant_Garamond({
   subsets: ['latin'],
   weight: ['400', '600', '700'],
-});
+});*/
 
 export default function RootLayout({
   children,

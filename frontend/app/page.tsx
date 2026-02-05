@@ -8,13 +8,26 @@ import { getProjects } from '../lib/getProjects';
 //   };
 // };
 
+type Project = {
+  id: string;
+  title: string;
+  excerpt?: string | null;
+};
 
+export default async function Page({
+    searchParams,
+    }: {
+      searchParams?: unknown;
+    }) {
+      const isPreview =
+        typeof searchParams === 'object' &&
+        searchParams !== null &&
+        'preview' in searchParams &&
+        (searchParams as { preview?: string }).preview === 'true';
 
-export default async function Page({ searchParams }: any) {
-  const isPreview = searchParams?.preview === 'true';
-  const projects = isPreview ? await getProjects() : [];
-
-  return (
+      const projects: Project[] = isPreview ? await getProjects() : [];
+    
+    return (
     <main className="relative min-h-screen">
 
       {/* HERO */}
@@ -103,7 +116,7 @@ export default async function Page({ searchParams }: any) {
                 </h2>
 
                 <div className="grid gap-10">
-                  {projects.map((project: any) => (
+                  {projects.map((project: Project) => (
                     <article
                       key={project.id}
                       className="border-l-4 pl-6 space-y-2"
