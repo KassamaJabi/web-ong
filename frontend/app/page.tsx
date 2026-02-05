@@ -8,8 +8,12 @@ type PageProps = {
   };
 };
 
-export default async function Home({ searchParams }: PageProps) {
-  const isPreview = searchParams?.preview === 'true';
+export default async function Page({
+    searchParams,
+  }: {
+    searchParams?: { preview?: string }
+  }) {
+  const isPreview = searchParams?.preview === 'true'
   const projects = isPreview ? await getProjects() : [];
 
   return (
