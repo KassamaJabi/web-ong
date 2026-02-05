@@ -8,12 +8,10 @@ import { getProjects } from '../lib/getProjects';
 //   };
 // };
 
-export default async function Page({
-    searchParams,
-  }: {
-    searchParams?: { preview?: string }
-  }) {
-  const isPreview = searchParams?.preview === 'true'
+
+
+export default async function Page({ searchParams }: any) {
+  const isPreview = searchParams?.preview === 'true';
   const projects = isPreview ? await getProjects() : [];
 
   return (
